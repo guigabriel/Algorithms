@@ -34,3 +34,10 @@ const particleConfig = {
     }
   },
 };
+
+function addParticle(matrix, particle, matrixSize) {
+  const particleHandler = particleConfig[particle];
+  if (particleHandler) {
+    particleHandler(matrix, matrixSize);
+  }
+}
