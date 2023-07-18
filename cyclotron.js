@@ -47,3 +47,27 @@ function cyclotron(particle, matrixSize) {
   addParticle(matrix, particle, matrixSize);
   return matrix;
 }
+
+function printMatrix(matrix) {
+  const maxLength = matrix.reduce((max, row) => {
+    const rowLength = row.reduce(
+      (max, val) => Math.max(max, String(val).length),
+      0
+    );
+    return Math.max(max, rowLength);
+  }, 0);
+
+  for (const row of matrix) {
+    let rowString = "";
+    for (const value of row) {
+      const paddedValue = String(value).padEnd(maxLength, " ");
+      rowString += paddedValue + " ";
+    }
+    console.log(rowString);
+  }
+}
+
+let particle = "p";
+let matrixSize = 4;
+const matrix = cyclotron(particle, matrixSize);
+printMatrix(matrix);
