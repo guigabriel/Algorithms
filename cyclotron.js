@@ -41,3 +41,9 @@ function addParticle(matrix, particle, matrixSize) {
     particleHandler(matrix, matrixSize);
   }
 }
+
+function cyclotron(particle, matrixSize) {
+  const matrix = initializeMatrix(matrixSize);
+  addParticle(matrix, particle, matrixSize);
+  return matrix;
+}
